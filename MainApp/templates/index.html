@@ -1,0 +1,211 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{%static 'images/logos.png'%}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>
+    {%block title%}
+    ZHEJIANG WILLING
+    {%endblock%}
+  </title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
+  <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,100" rel="stylesheet" type="text/css">
+  <!-- font awesome style -->
+  <link href="{%static 'css/font-awesome.min.css'%}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{%static 'css/style.css'%}" rel="stylesheet" />
+  <link href="{%static 'add/css/style1.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" href="{%static 'add/css/owl.carousel.min.css'%}" type="text/css">
+
+  <!-- responsive style -->
+
+
+</head>
+
+<body>
+<header class="header_section">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="{%url 'Home'%}">
+              <span>
+                ZHEJIANG WILLING
+              </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{%url 'Home'%}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'about'%}"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'Products'%}">Products</a>
+                </li>
+                {%if user.is_authenticated%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'logout'%}" >Logout</a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'Login'%}" >Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'register'%}" >Register</a>
+                </li>
+                {%endif%}
+                {%if user.is_authenticated%}
+                 {%if user.is_superuser%}
+                  <li class="nav-item">
+                  <a class="nav-link" href="{%url 'Dashbaord'%}" >Admin Access</a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'create_order'%}" >Place Order</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'user-orders'%}" >My Order</a>
+                </li>
+                  {%endif%}
+                {%endif%}
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+
+{%block body%}
+
+{%endblock%}
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              <a href="" class="navbar-brand">
+                <span>
+                  ZHEJIANG WILLING
+                </span>
+              </a>
+            </h5>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Useful Link
+            </h5>
+            <ul>
+              <li>
+                <a href="{%url 'Home'%}">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'about'%}">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'Products'%}">
+                  Products
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{%static 'js/jquery-3.4.1.min.js'%}"></script>
+  <!-- bootstrap js -->
+  <script src="{%static 'js/bootstrap.js'%}"></script>
+  <!-- custom js -->
+  <script src="{%static 'js/custom.js'%}"></script>
+  <script src="{%static 'add/js/jquery.slicknav.js'%}"></script>
+  <script src="{%static 'add/js/owl.carousel.min.js'%}"></script>
+  <script src="{%static 'add/js/main.js'%}"></script>
+
+
+</body>
+
+</html>

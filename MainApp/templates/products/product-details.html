@@ -1,0 +1,115 @@
+{%extends 'index.html'%}
+{%load static%}
+    {%block title%}
+    {{product.name}}
+    {%endblock%}
+{%block body%}
+<!-- Product Details Section Begin -->
+<br/>
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        {%if product.image%}
+                        <img class="product__details__pic__item--large"
+                            src="{{product.image.url}}" alt="">
+                        {%endif%}
+                    </div>
+                    <div class="product__details__pic__slider owl-carousel">
+                        {%if product.image2%}
+                        <img data-imgbigurl="{{product.image2.url}}"
+                            src="{{product.image2.url}}" alt="">
+                        {%endif%}
+                        {%if product.image3%}
+                        <img data-imgbigurl="{{product.image3.url}}"
+                            src="{{product.image3.url}}" alt="">
+                        {%endif%}
+                        {%if product.image4%}
+                        <img data-imgbigurl="{{product.image4.url}}"
+                            src="{{product.image4.url}}" alt="">
+                        {%endif%}
+                        {%if product.image5%}
+                        <img data-imgbigurl="{{product.image5.url}"
+                            src="{{product.image5.url}}" alt="">
+                        {%endif%}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>{{product.name}}</h3>
+                    <div class="product__details__rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+
+                    </div>
+                    <div class="product__details__price"></div>
+                    <p>{{product.description|safe|linebreaksbr|linebreaks|urlize}}.</p>
+                    {%if user.is_authenticated%}
+                    <a href="{%url 'create_order'%}" class="primary-btn">Place Order</a>
+                    {%else%}
+                    <a href="{%url 'Login'%}" class="primary-btn">Login to Place Order</a>
+                    {%endif%}
+                    <ul>
+                        <li><b>Availability</b> <span>In Stock</span></li>
+                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                        <li><b>Share on</b>
+                            <div class="share">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                aria-selected="true">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                aria-selected="false">Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                aria-selected="false">Reviews <span>(1)</span></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Products Infomation</h6>
+                                <p>{{product.description}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Products Infomation</h6>
+                                <p>{{product.description}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Products Infomation</h6>
+                                <p>{{product.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Details Section End -->
+
+{%endblock%}
